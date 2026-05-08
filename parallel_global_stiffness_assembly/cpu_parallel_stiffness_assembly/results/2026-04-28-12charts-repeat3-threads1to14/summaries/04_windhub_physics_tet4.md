@@ -1,0 +1,79 @@
+# CPU 并行整体刚度矩阵组装实验摘要
+
+- 最快单次平均组装：`cpu_row_owner` @ 12 线程，`106.498 ms`
+- 最高加速比：`cpu_row_owner` @ 12 线程，`5.352x`
+- 最低额外内存：`cpu_serial`，`0 B`
+
+| 算法 | 线程 | 平均组装时间 (ms) | 加速比 | 并行效率 | 额外内存 | 状态 |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| cpu_serial | 1 | 570.020 | 1.000 | 1.000 | 0 B | PASS |
+| cpu_atomic | 1 | 848.311 | 0.672 | 0.672 | 0 B | PASS |
+| cpu_private_csr | 1 | 578.955 | 0.985 | 0.985 | 209.83 MiB | PASS |
+| cpu_coo_sort_reduce | 1 | 4822.534 | 0.118 | 0.118 | 2.39 GiB | PASS |
+| cpu_graph_coloring | 1 | 928.255 | 0.614 | 0.614 | 8.50 MiB | PASS |
+| cpu_row_owner | 1 | 627.806 | 0.908 | 0.908 | 1.79 GiB | PASS |
+| cpu_atomic | 2 | 429.679 | 1.327 | 0.663 | 0 B | PASS |
+| cpu_private_csr | 2 | 318.043 | 1.792 | 0.896 | 419.65 MiB | PASS |
+| cpu_coo_sort_reduce | 2 | 5037.991 | 0.113 | 0.057 | 2.39 GiB | PASS |
+| cpu_graph_coloring | 2 | 500.648 | 1.139 | 0.569 | 8.50 MiB | PASS |
+| cpu_row_owner | 2 | 345.525 | 1.650 | 0.825 | 1.79 GiB | PASS |
+| cpu_atomic | 3 | 297.928 | 1.913 | 0.638 | 0 B | PASS |
+| cpu_private_csr | 3 | 223.651 | 2.549 | 0.850 | 629.48 MiB | PASS |
+| cpu_coo_sort_reduce | 3 | 4438.189 | 0.128 | 0.043 | 2.39 GiB | PASS |
+| cpu_graph_coloring | 3 | 351.098 | 1.624 | 0.541 | 8.50 MiB | PASS |
+| cpu_row_owner | 3 | 245.701 | 2.320 | 0.773 | 1.79 GiB | PASS |
+| cpu_atomic | 4 | 239.495 | 2.380 | 0.595 | 0 B | PASS |
+| cpu_private_csr | 4 | 176.157 | 3.236 | 0.809 | 839.30 MiB | PASS |
+| cpu_coo_sort_reduce | 4 | 4371.537 | 0.130 | 0.033 | 2.39 GiB | PASS |
+| cpu_graph_coloring | 4 | 276.925 | 2.058 | 0.515 | 8.50 MiB | PASS |
+| cpu_row_owner | 4 | 202.174 | 2.819 | 0.705 | 1.79 GiB | PASS |
+| cpu_atomic | 5 | 208.117 | 2.739 | 0.548 | 0 B | PASS |
+| cpu_private_csr | 5 | 159.896 | 3.565 | 0.713 | 1.02 GiB | PASS |
+| cpu_coo_sort_reduce | 5 | 4313.960 | 0.132 | 0.026 | 2.39 GiB | PASS |
+| cpu_graph_coloring | 5 | 224.393 | 2.540 | 0.508 | 8.50 MiB | PASS |
+| cpu_row_owner | 5 | 167.903 | 3.395 | 0.679 | 1.79 GiB | PASS |
+| cpu_atomic | 6 | 181.831 | 3.135 | 0.522 | 0 B | PASS |
+| cpu_private_csr | 6 | 137.724 | 4.139 | 0.690 | 1.23 GiB | PASS |
+| cpu_coo_sort_reduce | 6 | 4350.052 | 0.131 | 0.022 | 2.39 GiB | PASS |
+| cpu_graph_coloring | 6 | 195.205 | 2.920 | 0.487 | 8.50 MiB | PASS |
+| cpu_row_owner | 6 | 137.779 | 4.137 | 0.690 | 1.79 GiB | PASS |
+| cpu_atomic | 7 | 168.362 | 3.386 | 0.484 | 0 B | PASS |
+| cpu_private_csr | 7 | 121.415 | 4.695 | 0.671 | 1.43 GiB | PASS |
+| cpu_coo_sort_reduce | 7 | 4347.300 | 0.131 | 0.019 | 2.39 GiB | PASS |
+| cpu_graph_coloring | 7 | 181.030 | 3.149 | 0.450 | 8.50 MiB | PASS |
+| cpu_row_owner | 7 | 140.211 | 4.065 | 0.581 | 1.79 GiB | PASS |
+| cpu_atomic | 8 | 155.119 | 3.675 | 0.459 | 0 B | PASS |
+| cpu_private_csr | 8 | 114.869 | 4.962 | 0.620 | 1.64 GiB | PASS |
+| cpu_coo_sort_reduce | 8 | 4464.374 | 0.128 | 0.016 | 2.39 GiB | PASS |
+| cpu_graph_coloring | 8 | 164.981 | 3.455 | 0.432 | 8.50 MiB | PASS |
+| cpu_row_owner | 8 | 133.465 | 4.271 | 0.534 | 1.79 GiB | PASS |
+| cpu_atomic | 9 | 144.310 | 3.950 | 0.439 | 0 B | PASS |
+| cpu_private_csr | 9 | 114.116 | 4.995 | 0.555 | 1.84 GiB | PASS |
+| cpu_coo_sort_reduce | 9 | 4266.642 | 0.134 | 0.015 | 2.39 GiB | PASS |
+| cpu_graph_coloring | 9 | 178.857 | 3.187 | 0.354 | 8.50 MiB | PASS |
+| cpu_row_owner | 9 | 111.507 | 5.112 | 0.568 | 1.79 GiB | PASS |
+| cpu_atomic | 10 | 160.312 | 3.556 | 0.356 | 0 B | PASS |
+| cpu_private_csr | 10 | 112.739 | 5.056 | 0.506 | 2.05 GiB | PASS |
+| cpu_coo_sort_reduce | 10 | 4275.650 | 0.133 | 0.013 | 2.39 GiB | PASS |
+| cpu_graph_coloring | 10 | 171.422 | 3.325 | 0.333 | 8.50 MiB | PASS |
+| cpu_row_owner | 10 | 134.203 | 4.247 | 0.425 | 1.79 GiB | PASS |
+| cpu_atomic | 11 | 133.707 | 4.263 | 0.388 | 0 B | PASS |
+| cpu_private_csr | 11 | 120.436 | 4.733 | 0.430 | 2.25 GiB | PASS |
+| cpu_coo_sort_reduce | 11 | 4306.635 | 0.132 | 0.012 | 2.39 GiB | PASS |
+| cpu_graph_coloring | 11 | 163.361 | 3.489 | 0.317 | 8.50 MiB | PASS |
+| cpu_row_owner | 11 | 134.377 | 4.242 | 0.386 | 1.79 GiB | PASS |
+| cpu_atomic | 12 | 127.355 | 4.476 | 0.373 | 0 B | PASS |
+| cpu_private_csr | 12 | 130.075 | 4.382 | 0.365 | 2.46 GiB | PASS |
+| cpu_coo_sort_reduce | 12 | 4305.800 | 0.132 | 0.011 | 2.39 GiB | PASS |
+| cpu_graph_coloring | 12 | 171.745 | 3.319 | 0.277 | 8.50 MiB | PASS |
+| cpu_row_owner | 12 | 106.498 | 5.352 | 0.446 | 1.79 GiB | PASS |
+| cpu_atomic | 13 | 149.423 | 3.815 | 0.293 | 0 B | PASS |
+| cpu_private_csr | 13 | 123.275 | 4.624 | 0.356 | 2.66 GiB | PASS |
+| cpu_coo_sort_reduce | 13 | 4222.318 | 0.135 | 0.010 | 2.39 GiB | PASS |
+| cpu_graph_coloring | 13 | 164.106 | 3.473 | 0.267 | 8.50 MiB | PASS |
+| cpu_row_owner | 13 | 141.227 | 4.036 | 0.310 | 1.79 GiB | PASS |
+| cpu_atomic | 14 | 127.697 | 4.464 | 0.319 | 0 B | PASS |
+| cpu_private_csr | 14 | 126.868 | 4.493 | 0.321 | 2.87 GiB | PASS |
+| cpu_coo_sort_reduce | 14 | 4229.865 | 0.135 | 0.010 | 2.39 GiB | PASS |
+| cpu_graph_coloring | 14 | 162.580 | 3.506 | 0.250 | 8.50 MiB | PASS |
+| cpu_row_owner | 14 | 132.777 | 4.293 | 0.307 | 1.79 GiB | PASS |
