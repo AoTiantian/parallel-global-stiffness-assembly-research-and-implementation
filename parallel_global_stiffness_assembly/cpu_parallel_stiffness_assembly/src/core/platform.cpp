@@ -1,6 +1,7 @@
 #include "core/platform.h"
 
 #include <cstdlib>
+#include <fstream>
 #include <sstream>
 #include <thread>
 
@@ -8,11 +9,52 @@
 #include <sys/resource.h>
 #endif
 
+#if defined(__APPLE__)
+#include <sys/sysctl.h>
+#endif
+
 #ifdef _OPENMP
 #include <omp.h>
 #endif
 
 namespace fem {
+namespace {
+
+#if defined(__APPLE__)
+std::string sysctl_string(const char* name) {
+    std::size_t size = 0;
+    if (sysctlbyname(name, nullptr, &size, nullptr, 0) != 0 || size == 0) return {};
+    std::string value(size, '\0');
+    if (sysctlbyname(name, value.data(), &size, nullptr, 0) != 0) return {};
+    while (!value.empty() && value.back() == '\0') value.pop_back();
+    return value;
+}
+
+int sysctl_int(const char* name) {
+    int value = 0;
+    std::size_t size = sizeof(value);
+    if (sysctlbyname(name, &value, &size, nullptr, 0) != 0) return 0;
+    return value;
+}
+#endif
+
+#if defined(__linux__)
+std::string first_cpuinfo_value(const std::string& key) {
+    std::ifstream in("/proc/cpuinfo");
+    std::string line;
+    while (std::getline(in, line)) {
+        const auto pos = line.find(':');
+        if (pos == std::string::npos) continue;
+        if (line.substr(0, pos).find(key) == std::string::npos) continue;
+        std::string value = line.substr(pos + 1);
+        while (!value.empty() && value.front() == ' ') value.erase(value.begin());
+        return value;
+    }
+    return {};
+}
+#endif
+
+} // namespace
 
 PlatformInfo get_platform_info() {
     PlatformInfo info;
@@ -59,6 +101,34 @@ std::string platform_info_compact() {
     std::ostringstream os;
     os << info.os << ";" << info.arch << ";" << info.compiler << ";" << info.openmp;
     return os.str();
+}
+
+CpuTopologyInfo get_cpu_topology_info() {
+    CpuTopologyInfo info;
+#if defined(__APPLE__)
+    info.model = sysctl_string("machdep.cpu.brand_string");
+    if (info.model.empty()) info.model = sysctl_string("hw.model");
+    info.physical_cores = sysctl_int("hw.physicalcpu");
+    info.logical_cores = sysctl_int("hw.logicalcpu");
+#elif defined(__linux__)
+    info.model = first_cpuinfo_value("model name");
+    if (info.model.empty()) info.model = first_cpuinfo_value("Hardware");
+    info.logical_cores = static_cast<int>(std::thread::hardware_concurrency());
+    info.physical_cores = info.logical_cores;
+#elif defined(_WIN32)
+    const char* processor = std::getenv("PROCESSOR_IDENTIFIER");
+    info.model = processor ? processor : "Windows CPU";
+    info.logical_cores = static_cast<int>(std::thread::hardware_concurrency());
+    info.physical_cores = info.logical_cores;
+#else
+    info.model = "Unknown CPU";
+    info.logical_cores = static_cast<int>(std::thread::hardware_concurrency());
+    info.physical_cores = info.logical_cores;
+#endif
+    if (info.model.empty()) info.model = "Unknown CPU";
+    if (info.logical_cores <= 0) info.logical_cores = max_thread_count();
+    if (info.physical_cores <= 0) info.physical_cores = info.logical_cores;
+    return info;
 }
 
 int max_thread_count() {

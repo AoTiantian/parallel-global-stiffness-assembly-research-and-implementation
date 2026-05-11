@@ -35,6 +35,7 @@ add_library(fem_assembly STATIC
     src/assembly/assembly_options.cpp
     src/assembly/assembly_plan.cpp
     src/assembly/element_kernels.cpp
+    src/assembly/symbolic_numeric_eval.cpp
     src/assembly/assembler_factory.cpp
     src/backends/cpu/cpu_assembler_base.cpp
     src/backends/cpu/serial_assembler.cpp
@@ -92,6 +93,9 @@ endif()
 if(BUILD_BENCHMARKS)
     add_executable(benchmark_assembly apps/benchmark/main.cpp)
     target_link_libraries(benchmark_assembly PRIVATE fem_assembly)
+
+    add_executable(symbolic_numeric_eval apps/symbolic_eval/main.cpp)
+    target_link_libraries(symbolic_numeric_eval PRIVATE fem_assembly)
 endif()
 
 if(BUILD_TESTS)
@@ -107,6 +111,10 @@ if(BUILD_TESTS)
         PGSA_TEST_EXAMPLES_DIR="${CMAKE_CURRENT_SOURCE_DIR}/examples")
     target_link_libraries(verify_inp_parser PRIVATE fem_assembly)
     add_test(NAME VerifyInpParser COMMAND verify_inp_parser)
+
+    add_executable(verify_symbolic_numeric_eval tests/correctness/verify_symbolic_numeric_eval.cpp)
+    target_link_libraries(verify_symbolic_numeric_eval PRIVATE fem_assembly)
+    add_test(NAME VerifySymbolicNumericEval COMMAND verify_symbolic_numeric_eval)
 endif()
 
 install(TARGETS fem_core fem_assembly
