@@ -71,6 +71,10 @@ struct RunRecord {
     int run_count = 0;
     std::string message;
     std::string platform;
+    std::string cpu_model;
+    int physical_cores = 0;
+    int logical_cores = 0;
+    std::string thread_region;
     std::string omp_proc_bind;
     std::string omp_places;
     std::string omp_dynamic;
@@ -326,6 +330,11 @@ RunRecord run_one(AlgorithmType algo,
     record.algorithm = algorithm_to_string(algo);
     record.threads = threads;
     record.platform = platform_info_compact();
+    const auto cpu = get_cpu_topology_info();
+    record.cpu_model = cpu.model;
+    record.physical_cores = cpu.physical_cores;
+    record.logical_cores = cpu.logical_cores;
+    record.thread_region = classify_thread_region(threads, cpu);
     record.omp_proc_bind = environment_value_or_empty("OMP_PROC_BIND");
     record.omp_places = environment_value_or_empty("OMP_PLACES");
     record.omp_dynamic = environment_value_or_empty("OMP_DYNAMIC");
@@ -411,6 +420,7 @@ RunRecord run_one(AlgorithmType algo,
 
 void write_csv_header(std::ofstream& out) {
     out << "case_name,mesh,element_type,kernel,nodes,elements,dofs,nnz,algorithm,threads,effective_threads,"
+        << "thread_region,cpu_model,physical_cores,logical_cores,"
         << "run_count,preprocess_ms,assembly_ms,total_ms,assembly_mean_ms,assembly_min_ms,assembly_max_ms,"
         << "assembly_std_ms,total_mean_ms,total_min_ms,total_max_ms,total_std_ms,speedup,efficiency,"
         << "preprocess_share,rel_l2,max_abs,extra_memory_bytes,peak_rss_mb,colors,prepare_allocate_ms,"
@@ -435,6 +445,10 @@ void write_csv_record(std::ofstream& out,
         << r.algorithm << ','
         << r.threads << ','
         << r.effective_threads << ','
+        << csv_escape(r.thread_region) << ','
+        << csv_escape(r.cpu_model) << ','
+        << r.physical_cores << ','
+        << r.logical_cores << ','
         << r.run_count << ','
         << std::setprecision(10)
         << r.stats.preprocess_time_ms << ','
@@ -499,6 +513,10 @@ void write_json(const std::string& path, const std::vector<RunRecord>& records, 
             << "      \"algorithm\": \"" << r.algorithm << "\",\n"
             << "      \"threads\": " << r.threads << ",\n"
             << "      \"effective_threads\": " << r.effective_threads << ",\n"
+            << "      \"thread_region\": \"" << json_escape(r.thread_region) << "\",\n"
+            << "      \"cpu_model\": \"" << json_escape(r.cpu_model) << "\",\n"
+            << "      \"physical_cores\": " << r.physical_cores << ",\n"
+            << "      \"logical_cores\": " << r.logical_cores << ",\n"
             << "      \"run_count\": " << r.run_count << ",\n"
             << "      \"status\": \"" << r.status << "\",\n"
             << "      \"skip_reason\": \"" << json_escape(r.skip_reason) << "\",\n"

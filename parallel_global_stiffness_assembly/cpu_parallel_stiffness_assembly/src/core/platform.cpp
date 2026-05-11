@@ -131,6 +131,18 @@ CpuTopologyInfo get_cpu_topology_info() {
     return info;
 }
 
+std::string classify_thread_region(int requested_threads, const CpuTopologyInfo& cpu) {
+    const int threads = requested_threads <= 0 ? max_thread_count() : requested_threads;
+    int logical = cpu.logical_cores;
+    if (logical <= 0) logical = max_thread_count();
+    int physical = cpu.physical_cores;
+    if (physical <= 0 || physical > logical) physical = logical;
+
+    if (threads <= physical) return "physical_core_region";
+    if (threads <= logical && logical > physical) return "logical_core_region";
+    return "oversubscription_region";
+}
+
 int max_thread_count() {
 #ifdef _OPENMP
     return omp_get_max_threads();

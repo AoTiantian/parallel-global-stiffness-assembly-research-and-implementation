@@ -115,6 +115,10 @@ if(BUILD_TESTS)
     add_executable(verify_symbolic_numeric_eval tests/correctness/verify_symbolic_numeric_eval.cpp)
     target_link_libraries(verify_symbolic_numeric_eval PRIVATE fem_assembly)
     add_test(NAME VerifySymbolicNumericEval COMMAND verify_symbolic_numeric_eval)
+
+    add_executable(verify_thread_region tests/correctness/verify_thread_region.cpp)
+    target_link_libraries(verify_thread_region PRIVATE fem_core)
+    add_test(NAME VerifyThreadRegion COMMAND verify_thread_region)
 endif()
 
 install(TARGETS fem_core fem_assembly

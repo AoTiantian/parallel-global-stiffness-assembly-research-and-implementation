@@ -20,6 +20,7 @@ struct CpuTopologyInfo {
 PlatformInfo get_platform_info();
 std::string platform_info_compact();
 CpuTopologyInfo get_cpu_topology_info();
+std::string classify_thread_region(int requested_threads, const CpuTopologyInfo& cpu);
 int effective_thread_count(int requested_threads);
 int current_thread_id();
 int max_thread_count();
