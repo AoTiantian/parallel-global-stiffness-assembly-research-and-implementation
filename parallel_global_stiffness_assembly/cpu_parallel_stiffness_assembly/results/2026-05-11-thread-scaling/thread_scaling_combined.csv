@@ -1,0 +1,225 @@
+env_group,algorithm,threads,thread_region,assembly_ms,speedup,efficiency,status,skip_reason,diagnostics,physical_cores,logical_cores,cpu_model,omp_dynamic,omp_proc_bind,omp_places,extra_memory_bytes,rel_l2
+default,cpu_atomic,1,physical_core_region,722.165667,0.7525282362,0.7525282362,PASS,,,14,14,Apple M4 Max,,,,0.0,0.0
+default,cpu_private_csr,1,physical_core_region,546.9938887,0.9935212567,0.9935212567,PASS,,,14,14,Apple M4 Max,,,,220017600.0,0.0
+default,cpu_row_owner,1,physical_core_region,611.5394027,0.8886591008,0.8886591008,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,1,physical_core_region,905.7942223,0.5999707685,0.5999707685,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,2,physical_core_region,409.460639,1.327233936,0.6636169682,PASS,,,14,14,Apple M4 Max,,,,0.0,7.325795297e-18
+default,cpu_private_csr,2,physical_core_region,297.3712083,1.827514031,0.9137570155,PASS,,,14,14,Apple M4 Max,,,,440035200.0,8.298033569e-18
+default,cpu_row_owner,2,physical_core_region,326.099861,1.666514221,0.8332571103,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,2,physical_core_region,491.425778,1.105863957,0.5529319787,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,3,physical_core_region,277.4218197,1.95893047,0.6529768234,PASS,,,14,14,Apple M4 Max,,,,0.0,1.381083486e-17
+default,cpu_private_csr,3,physical_core_region,219.6457497,2.474211572,0.8247371908,PASS,,,14,14,Apple M4 Max,,,,660052800.0,1.296852184e-17
+default,cpu_row_owner,3,physical_core_region,227.0033193,2.394018102,0.798006034,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,3,physical_core_region,340.782236,1.594713569,0.5315711895,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,4,physical_core_region,215.922917,2.516870665,0.6292176662,PASS,,,14,14,Apple M4 Max,,,,0.0,1.715234522e-17
+default,cpu_private_csr,4,physical_core_region,174.2824167,3.118215056,0.779553764,PASS,,,14,14,Apple M4 Max,,,,880070400.0,1.621461041e-17
+default,cpu_row_owner,4,physical_core_region,183.4106247,2.963023852,0.7407559631,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,4,physical_core_region,270.8581807,2.006400746,0.5016001864,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,5,physical_core_region,195.922583,2.773799974,0.5547599948,PASS,,,14,14,Apple M4 Max,,,,0.0,9.153751368e-17
+default,cpu_private_csr,5,physical_core_region,152.071875,3.573639476,0.7147278952,PASS,,,14,14,Apple M4 Max,,,,1100088000.0,6.933680511e-17
+default,cpu_row_owner,5,physical_core_region,161.8080693,3.35860911,0.6717218219,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,5,physical_core_region,236.4448473,2.298422071,0.4596844142,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,6,physical_core_region,167.077167,3.252688955,0.5421148258,PASS,,,14,14,Apple M4 Max,,,,0.0,1.562208042e-17
+default,cpu_private_csr,6,physical_core_region,130.4596943,4.165654829,0.6942758048,PASS,,,14,14,Apple M4 Max,,,,1320105600.0,1.413851997e-17
+default,cpu_row_owner,6,physical_core_region,131.4724863,4.133564906,0.6889274844,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,6,physical_core_region,189.5065553,2.867711118,0.477951853,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,7,physical_core_region,156.9627643,3.462286473,0.4946123532,PASS,,,14,14,Apple M4 Max,,,,0.0,1.090291376e-16
+default,cpu_private_csr,7,physical_core_region,126.4385557,4.298135587,0.6140193696,PASS,,,14,14,Apple M4 Max,,,,1540123200.0,8.268687012e-17
+default,cpu_row_owner,7,physical_core_region,152.4236943,3.565390919,0.5093415599,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,7,physical_core_region,217.2215697,2.501823629,0.3574033755,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,8,physical_core_region,145.132375,3.744512936,0.468064117,PASS,,,14,14,Apple M4 Max,,,,0.0,9.814477244e-17
+default,cpu_private_csr,8,physical_core_region,122.774167,4.426420223,0.5533025279,PASS,,,14,14,Apple M4 Max,,,,1760140800.0,7.391654287e-17
+default,cpu_row_owner,8,physical_core_region,124.6964027,4.358185513,0.5447731892,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,8,physical_core_region,174.0421667,3.122519479,0.3903149349,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,9,physical_core_region,134.2734443,4.047338313,0.449704257,PASS,,,14,14,Apple M4 Max,,,,0.0,1.164690085e-16
+default,cpu_private_csr,9,physical_core_region,104.8401947,5.183604031,0.5759560034,PASS,,,14,14,Apple M4 Max,,,,1980158400.0,8.849359086e-17
+default,cpu_row_owner,9,physical_core_region,112.6344583,4.824900512,0.5361000569,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,9,physical_core_region,163.0142917,3.333757121,0.3704174579,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,10,physical_core_region,134.818583,4.030972909,0.4030972909,PASS,,,14,14,Apple M4 Max,,,,0.0,1.282579405e-16
+default,cpu_private_csr,10,physical_core_region,117.639403,4.619626093,0.4619626093,PASS,,,14,14,Apple M4 Max,,,,2200176000.0,9.69392873e-17
+default,cpu_row_owner,10,physical_core_region,139.1804167,3.904644552,0.3904644552,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,10,physical_core_region,185.695847,2.926560095,0.2926560095,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,11,physical_core_region,146.8561253,3.700561038,0.3364146399,PASS,,,14,14,Apple M4 Max,,,,0.0,1.364900771e-16
+default,cpu_private_csr,11,physical_core_region,124.196125,4.375740835,0.3977946213,PASS,,,14,14,Apple M4 Max,,,,2420193600.0,1.03807079e-16
+default,cpu_row_owner,11,physical_core_region,169.3409857,3.209205695,0.2917459723,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,11,physical_core_region,177.7584583,3.057238799,0.2779307999,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,12,physical_core_region,148.004264,3.671854046,0.3059878372,PASS,,,14,14,Apple M4 Max,,,,0.0,2.081131228e-17
+default,cpu_private_csr,12,physical_core_region,151.634764,3.583941052,0.2986617544,PASS,,,14,14,Apple M4 Max,,,,2640211200.0,1.955083744e-17
+default,cpu_row_owner,12,physical_core_region,129.4936947,4.196729864,0.3497274887,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,12,physical_core_region,172.610292,3.148422086,0.2623685072,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,13,physical_core_region,161.3608473,3.367917711,0.2590705932,PASS,,,14,14,Apple M4 Max,,,,0.0,1.423895638e-16
+default,cpu_private_csr,13,physical_core_region,143.3634023,3.790716786,0.2915935989,PASS,,,14,14,Apple M4 Max,,,,2860228800.0,1.128365689e-16
+default,cpu_row_owner,13,physical_core_region,140.9810137,3.854774778,0.2965211368,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,13,physical_core_region,163.4605557,3.324655624,0.2557427403,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,14,physical_core_region,144.862042,3.751500726,0.2679643375,PASS,,,14,14,Apple M4 Max,,,,0.0,1.471925752e-16
+default,cpu_private_csr,14,physical_core_region,121.9282363,4.457130456,0.3183664612,PASS,,,14,14,Apple M4 Max,,,,3080246400.0,1.156296498e-16
+default,cpu_row_owner,14,physical_core_region,137.395958,3.955356938,0.2825254955,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,14,physical_core_region,167.0143057,3.253913211,0.2324223722,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,15,oversubscription_region,144.8824583,3.750972077,0.2500648051,PASS,,,14,14,Apple M4 Max,,,,0.0,1.499885228e-16
+default,cpu_private_csr,15,oversubscription_region,143.2869717,3.792738791,0.2528492527,PASS,,,14,14,Apple M4 Max,,,,3300264000.0,1.179939966e-16
+default,cpu_row_owner,15,oversubscription_region,150.313667,3.615440076,0.2410293384,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,15,oversubscription_region,168.9321947,3.2169715,0.2144647667,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,16,oversubscription_region,173.4424167,3.133316902,0.1958323064,PASS,,,14,14,Apple M4 Max,,,,0.0,1.4006082e-16
+default,cpu_private_csr,16,oversubscription_region,149.2446807,3.641336182,0.2275835114,PASS,,,14,14,Apple M4 Max,,,,3520281600.0,1.194917402e-16
+default,cpu_row_owner,16,oversubscription_region,125.5800417,4.327519313,0.2704699571,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,16,oversubscription_region,143.0283473,3.799596834,0.2374748021,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,17,oversubscription_region,116.2456113,4.67501568,0.2750009223,PASS,,,14,14,Apple M4 Max,,,,0.0,1.498062504e-16
+default,cpu_private_csr,17,oversubscription_region,131.581625,4.130136375,0.2429491985,PASS,,,14,14,Apple M4 Max,,,,3740299200.0,1.261469697e-16
+default,cpu_row_owner,17,oversubscription_region,132.196486,4.110926637,0.241819214,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,17,oversubscription_region,163.0865553,3.332279933,0.1960164666,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,18,oversubscription_region,116.266875,4.674160681,0.2596755934,PASS,,,14,14,Apple M4 Max,,,,0.0,1.424844944e-16
+default,cpu_private_csr,18,oversubscription_region,130.7809723,4.155421435,0.2308567464,PASS,,,14,14,Apple M4 Max,,,,3960316800.0,1.241182181e-16
+default,cpu_row_owner,18,oversubscription_region,148.726278,3.654028481,0.2030015823,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,18,oversubscription_region,137.0587777,3.96508757,0.2202826428,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,19,oversubscription_region,133.035153,4.085010942,0.2150005759,PASS,,,14,14,Apple M4 Max,,,,0.0,1.483672768e-16
+default,cpu_private_csr,19,oversubscription_region,132.4008473,4.104581403,0.2160306001,PASS,,,14,14,Apple M4 Max,,,,4180334400.0,1.298761896e-16
+default,cpu_row_owner,19,oversubscription_region,147.1649727,3.692794867,0.1943576246,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,19,oversubscription_region,158.3570417,3.431802274,0.1806211723,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,20,oversubscription_region,129.703764,4.189932805,0.2094966402,PASS,,,14,14,Apple M4 Max,,,,0.0,1.497557561e-16
+default,cpu_private_csr,20,oversubscription_region,132.7804163,4.092847957,0.2046423978,PASS,,,14,14,Apple M4 Max,,,,4400352000.0,1.297256416e-16
+default,cpu_row_owner,20,oversubscription_region,147.3370137,3.688482901,0.1844241451,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,20,oversubscription_region,146.990722,3.697172504,0.1848586252,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,21,oversubscription_region,130.0999167,4.17717451,0.1989130719,PASS,,,14,14,Apple M4 Max,,,,0.0,1.486338702e-16
+default,cpu_private_csr,21,oversubscription_region,146.1743473,3.717820983,0.1770390944,PASS,,,14,14,Apple M4 Max,,,,4620369600.0,1.31761096e-16
+default,cpu_row_owner,21,oversubscription_region,170.3671667,3.189875528,0.1518988347,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,21,oversubscription_region,169.7122643,3.202184932,0.1524849968,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,22,oversubscription_region,168.7793753,3.21988427,0.1463583759,PASS,,,14,14,Apple M4 Max,,,,0.0,1.465206505e-16
+default,cpu_private_csr,22,oversubscription_region,344.5585693,1.57723564,0.0716925291,PASS,,,14,14,Apple M4 Max,,,,4840387200.0,1.334695628e-16
+default,cpu_row_owner,22,oversubscription_region,129.219958,4.205620123,0.191164551,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,22,oversubscription_region,144.9885973,3.748226175,0.1703739171,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,23,oversubscription_region,120.6071253,4.505953145,0.1959110063,PASS,,,14,14,Apple M4 Max,,,,0.0,1.446958589e-16
+default,cpu_private_csr,23,oversubscription_region,144.4358053,3.762571576,0.1635900685,PASS,,,14,14,Apple M4 Max,,,,5060404800.0,1.345999853e-16
+default,cpu_row_owner,23,oversubscription_region,127.2519023,4.270663508,0.1856810221,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,23,oversubscription_region,147.4385553,3.685942625,0.160258375,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,24,oversubscription_region,124.394389,4.36876663,0.1820319429,PASS,,,14,14,Apple M4 Max,,,,0.0,1.304128229e-16
+default,cpu_private_csr,24,oversubscription_region,149.2944443,3.640122431,0.151671768,PASS,,,14,14,Apple M4 Max,,,,5280422400.0,1.254952402e-16
+default,cpu_row_owner,24,oversubscription_region,147.721764,3.678876023,0.153286501,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,24,oversubscription_region,152.2724443,3.56893237,0.1487055154,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,25,oversubscription_region,141.1388197,3.85046479,0.1540185916,PASS,,,14,14,Apple M4 Max,,,,0.0,1.484325955e-16
+default,cpu_private_csr,25,oversubscription_region,204.2384583,2.660860546,0.1064344218,PASS,,,14,14,Apple M4 Max,,,,5500440000.0,1.362234811e-16
+default,cpu_row_owner,25,oversubscription_region,131.4924443,4.132937512,0.1653175005,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,25,oversubscription_region,151.6313333,3.584022139,0.1433608856,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,26,oversubscription_region,137.3921663,3.955466095,0.1521333114,PASS,,,14,14,Apple M4 Max,,,,0.0,1.446246849e-16
+default,cpu_private_csr,26,oversubscription_region,186.5117917,2.913757092,0.1120675805,PASS,,,14,14,Apple M4 Max,,,,5720457600.0,1.367535331e-16
+default,cpu_row_owner,26,oversubscription_region,253.2229447,2.146132754,0.08254356747,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,26,oversubscription_region,176.700833,3.075537599,0.1182899077,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,27,oversubscription_region,124.3068477,4.371843272,0.1619201212,PASS,,,14,14,Apple M4 Max,,,,0.0,1.473007586e-16
+default,cpu_private_csr,27,oversubscription_region,259.7698747,2.092044185,0.07748311795,PASS,,,14,14,Apple M4 Max,,,,5940475200.0,1.371638282e-16
+default,cpu_row_owner,27,oversubscription_region,129.729889,4.189089036,0.1551514458,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,27,oversubscription_region,158.3645693,3.431639147,0.1270977462,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+default,cpu_atomic,28,oversubscription_region,138.7859303,3.915743147,0.1398479696,PASS,,,14,14,Apple M4 Max,,,,0.0,1.499723456e-16
+default,cpu_private_csr,28,oversubscription_region,545.0301947,0.997100823,0.03561074368,PASS,,,14,14,Apple M4 Max,,,,6160492800.0,1.372569877e-16
+default,cpu_row_owner,28,oversubscription_region,143.804139,3.779098845,0.1349678159,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,,,,1924445952.0,0.0
+default,cpu_graph_coloring,28,oversubscription_region,146.3875833,3.712405406,0.1325859073,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,,,,8909472.0,1.228013142e-16
+bound,cpu_atomic,1,physical_core_region,765.643583,0.7047464142,0.7047464142,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,0.0
+bound,cpu_private_csr,1,physical_core_region,583.5493057,0.924659775,0.924659775,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,220017600.0,0.0
+bound,cpu_row_owner,1,physical_core_region,629.7109863,0.8568765376,0.8568765376,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,1,physical_core_region,972.2198053,0.5550026514,0.5550026514,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,2,physical_core_region,444.5755137,1.213707352,0.6068536762,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,8.718185024e-18
+bound,cpu_private_csr,2,physical_core_region,332.7678333,1.621504592,0.8107522958,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,440035200.0,8.298033569e-18
+bound,cpu_row_owner,2,physical_core_region,326.0068193,1.655132769,0.8275663846,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,2,physical_core_region,483.472625,1.116060231,0.5580301156,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,3,physical_core_region,292.6909583,1.843530025,0.6145100083,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.381617302e-17
+bound,cpu_private_csr,3,physical_core_region,222.0363753,2.430162935,0.8100543118,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,660052800.0,1.296852184e-17
+bound,cpu_row_owner,3,physical_core_region,249.008125,2.166935596,0.7223118652,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,3,physical_core_region,351.004125,1.53725991,0.5124199701,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,4,physical_core_region,234.46925,2.301302067,0.5753255167,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.714408231e-17
+bound,cpu_private_csr,4,physical_core_region,233.976903,2.306144593,0.5765361482,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,880070400.0,1.621461041e-17
+bound,cpu_row_owner,4,physical_core_region,188.1134727,2.868399387,0.7170998467,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,4,physical_core_region,271.9961393,1.983794957,0.4959487394,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,5,physical_core_region,200.520042,2.690925876,0.5381851752,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,9.15371396e-17
+bound,cpu_private_csr,5,physical_core_region,149.777889,3.602564926,0.7205129853,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,1100088000.0,6.933680511e-17
+bound,cpu_row_owner,5,physical_core_region,163.690861,3.29636344,0.659272688,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,5,physical_core_region,219.3171807,2.460293207,0.4920586413,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,6,physical_core_region,169.5034167,3.183325624,0.5305542707,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.497393842e-17
+bound,cpu_private_csr,6,physical_core_region,139.7065833,3.862270172,0.6437116954,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,1320105600.0,1.413851997e-17
+bound,cpu_row_owner,6,physical_core_region,148.20925,3.640694286,0.6067823811,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,6,physical_core_region,196.0425273,2.752385296,0.4587308827,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,7,physical_core_region,149.859514,3.600602693,0.5143718133,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.090389683e-16
+bound,cpu_private_csr,7,physical_core_region,130.938625,4.120896868,0.5886995526,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,1540123200.0,8.268687012e-17
+bound,cpu_row_owner,7,physical_core_region,147.6395,3.654743952,0.5221062788,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,7,physical_core_region,183.1678333,2.945847859,0.4208354084,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,8,physical_core_region,150.3039583,3.589955818,0.4487444772,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,9.826395287e-17
+bound,cpu_private_csr,8,physical_core_region,140.9582917,3.827973249,0.4784966561,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,1760140800.0,7.391654287e-17
+bound,cpu_row_owner,8,physical_core_region,136.641639,3.948902938,0.4936128672,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,8,physical_core_region,173.7771527,3.105037465,0.3881296832,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,9,physical_core_region,126.8864027,4.252501122,0.4725001246,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.164290444e-16
+bound,cpu_private_csr,9,physical_core_region,148.35325,3.637160424,0.404128936,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,1980158400.0,8.849359086e-17
+bound,cpu_row_owner,9,physical_core_region,150.247278,3.591310118,0.3990344575,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,9,physical_core_region,166.28775,3.244884663,0.3605427404,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,10,physical_core_region,129.6868333,4.160673492,0.4160673492,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.281888579e-16
+bound,cpu_private_csr,10,physical_core_region,113.932958,4.735983153,0.4735983153,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,2200176000.0,9.69392873e-17
+bound,cpu_row_owner,10,physical_core_region,128.0985137,4.212262533,0.4212262533,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,10,physical_core_region,174.0658613,3.099887396,0.3099887396,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,11,physical_core_region,146.2920003,3.6884079,0.335309809,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.370303624e-16
+bound,cpu_private_csr,11,physical_core_region,122.786514,4.394493761,0.3994994328,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,2420193600.0,1.03807079e-16
+bound,cpu_row_owner,11,physical_core_region,138.5099723,3.895636975,0.3541488159,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,11,physical_core_region,169.9693053,3.174600076,0.2886000069,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,12,physical_core_region,134.7299583,4.004933842,0.3337444868,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.926055321e-17
+bound,cpu_private_csr,12,physical_core_region,123.2081253,4.379456048,0.3649546707,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,2640211200.0,1.955083744e-17
+bound,cpu_row_owner,12,physical_core_region,114.4595553,4.714194181,0.3928495151,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,12,physical_core_region,164.5725837,3.278702671,0.2732252226,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,13,physical_core_region,194.8821807,2.768773255,0.2129825581,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.448061727e-16
+bound,cpu_private_csr,13,physical_core_region,127.7238193,4.22461975,0.32497075,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,2860228800.0,1.128365689e-16
+bound,cpu_row_owner,13,physical_core_region,133.8250003,4.032016203,0.3101550925,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,13,physical_core_region,179.078083,3.013124558,0.2317788121,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,14,physical_core_region,155.0338337,3.480431058,0.2486022184,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.491228156e-16
+bound,cpu_private_csr,14,physical_core_region,127.6247777,4.227898215,0.3019927296,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,3080246400.0,1.156296498e-16
+bound,cpu_row_owner,14,physical_core_region,133.214361,4.050498502,0.2893213216,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,14,physical_core_region,161.280542,3.345627209,0.2389733721,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,15,oversubscription_region,132.1959723,4.081702038,0.2721134692,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.46625915e-16
+bound,cpu_private_csr,15,oversubscription_region,130.329,4.140172714,0.2760115143,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,3300264000.0,1.179939966e-16
+bound,cpu_row_owner,15,oversubscription_region,164.7575697,3.275021419,0.2183347613,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,15,oversubscription_region,152.2060693,3.545092335,0.236339489,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,16,oversubscription_region,125.861597,4.287126356,0.2679453972,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.478930326e-16
+bound,cpu_private_csr,16,oversubscription_region,134.463514,4.012869764,0.2508043602,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,3520281600.0,1.194917402e-16
+bound,cpu_row_owner,16,oversubscription_region,150.751764,3.579291912,0.2237057445,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,16,oversubscription_region,147.7632777,3.651682463,0.2282301539,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,17,oversubscription_region,123.187764,4.380179915,0.2576576421,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.493400273e-16
+bound,cpu_private_csr,17,oversubscription_region,129.936861,4.152667423,0.2442745543,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,3740299200.0,1.261469697e-16
+bound,cpu_row_owner,17,oversubscription_region,138.9668193,3.882830249,0.2284017793,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,17,oversubscription_region,148.197889,3.640973386,0.214174905,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,18,oversubscription_region,138.0830277,3.907682058,0.2170934476,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.430050666e-16
+bound,cpu_private_csr,18,oversubscription_region,131.760194,4.095201694,0.2275112052,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,3960316800.0,1.241182181e-16
+bound,cpu_row_owner,18,oversubscription_region,129.5513747,4.165023884,0.2313902158,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,18,oversubscription_region,139.9938473,3.854344887,0.2141302715,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,19,oversubscription_region,122.248778,4.413823831,0.2323065174,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.42737802e-16
+bound,cpu_private_csr,19,oversubscription_region,229.533236,2.350790583,0.1237258202,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,4180334400.0,1.298761896e-16
+bound,cpu_row_owner,19,oversubscription_region,133.3218057,4.047234186,0.2130123256,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,19,oversubscription_region,142.939181,3.774924173,0.1986802196,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,20,oversubscription_region,122.499528,4.404788969,0.2202394485,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.479322243e-16
+bound,cpu_private_csr,20,oversubscription_region,129.083861,4.180108694,0.2090054347,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,4400352000.0,1.297256416e-16
+bound,cpu_row_owner,20,oversubscription_region,134.8165003,4.002362977,0.2001181489,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,20,oversubscription_region,153.43725,3.51664651,0.1758323255,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,21,oversubscription_region,130.542917,4.13338833,0.1968280157,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.484710357e-16
+bound,cpu_private_csr,21,oversubscription_region,128.8476803,4.187770927,0.1994176632,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,4620369600.0,1.31761096e-16
+bound,cpu_row_owner,21,oversubscription_region,133.034236,4.055982775,0.1931420369,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,21,oversubscription_region,165.3075977,3.26412444,0.1554344971,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,22,oversubscription_region,131.6984867,4.097120501,0.18623275,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.466278298e-16
+bound,cpu_private_csr,22,oversubscription_region,145.861639,3.69929046,0.1681495664,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,4840387200.0,1.334695628e-16
+bound,cpu_row_owner,22,oversubscription_region,132.0953197,4.084812172,0.1856732806,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,22,oversubscription_region,145.2063057,3.715985798,0.1689084454,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,23,oversubscription_region,116.5683053,4.628913221,0.2012570966,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.495651135e-16
+bound,cpu_private_csr,23,oversubscription_region,166.7163473,3.236542656,0.1407192459,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,5060404800.0,1.345999853e-16
+bound,cpu_row_owner,23,oversubscription_region,134.5710833,4.009662078,0.1743331338,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,23,oversubscription_region,177.0301113,3.047981869,0.1325209508,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,24,oversubscription_region,119.459667,4.516876559,0.18820319,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.237828756e-16
+bound,cpu_private_csr,24,oversubscription_region,160.8024723,3.355573841,0.1398155767,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,5280422400.0,1.254952402e-16
+bound,cpu_row_owner,24,oversubscription_region,135.5112223,3.981844163,0.1659101735,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,24,oversubscription_region,141.8730693,3.803291014,0.1584704589,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,25,oversubscription_region,117.287514,4.60052866,0.1840211464,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.51210204e-16
+bound,cpu_private_csr,25,oversubscription_region,158.2184027,3.410378063,0.1364151225,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,5500440000.0,1.362234811e-16
+bound,cpu_row_owner,25,oversubscription_region,143.9275557,3.749001136,0.1499600454,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,25,oversubscription_region,141.5125417,3.812980555,0.1525192222,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,26,oversubscription_region,117.4323893,4.594853028,0.1767251164,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.483039436e-16
+bound,cpu_private_csr,26,oversubscription_region,189.8215697,2.842588282,0.1093303186,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,5720457600.0,1.367535331e-16
+bound,cpu_row_owner,26,oversubscription_region,147.842514,3.64972534,0.1403740515,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,26,oversubscription_region,156.6070417,3.445468122,0.1325180047,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,27,oversubscription_region,140.2277083,3.847916907,0.142515441,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.471963321e-16
+bound,cpu_private_csr,27,oversubscription_region,172.4736527,3.128504333,0.1158705308,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,5940475200.0,1.371638282e-16
+bound,cpu_row_owner,27,oversubscription_region,140.0016663,3.854129624,0.1427455416,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,27,oversubscription_region,158.456514,3.405253316,0.1261204932,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
+bound,cpu_atomic,28,oversubscription_region,122.456625,4.406332199,0.1573690071,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,0.0,1.51185257e-16
+bound,cpu_private_csr,28,oversubscription_region,181.0185553,2.980824638,0.1064580228,PASS,,,14,14,Apple M4 Max,FALSE,close,cores,6160492800.0,1.372569877e-16
+bound,cpu_row_owner,28,oversubscription_region,131.8462643,4.092528312,0.1461617254,PASS,,"Owner-computes by CSR row block; no atomics, but elements may be recomputed by multiple owners",14,14,Apple M4 Max,FALSE,close,cores,1924445952.0,0.0
+bound,cpu_graph_coloring,28,oversubscription_region,155.965014,3.45965134,0.1235589764,PASS,,"Greedy first-fit element coloring, colors=50",14,14,Apple M4 Max,FALSE,close,cores,8909472.0,1.228013142e-16
