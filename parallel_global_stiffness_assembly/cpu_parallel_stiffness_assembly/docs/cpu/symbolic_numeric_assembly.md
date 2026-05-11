@@ -62,11 +62,14 @@
 
 新增独立程序 `symbolic_numeric_eval`，固定用于回答“符号组装是否带来效率收益”。
 
-三种模式：
+主线模式：
 
 - `symbolic_reuse_serial`：构建一次 CSR/scatter plan，多次复用数值组装。
-- `symbolic_rebuild_serial`：每次都重建 CSR/scatter plan，再数值组装。
 - `direct_no_symbolic_serial`：不复用 CSR/scatter plan，每次生成 `(row,col,value)` 贡献并排序归并。
+
+控制实验：
+
+- `symbolic_rebuild_serial`：每次都重建 CSR/scatter plan，再数值组装。它不是推荐使用场景，也不是 mentor 需求中的主比较对象；它用于隔离变量，说明符号组装收益到底来自“预计算 CSR/scatter”还是“预计算结果可被多次数值组装复用”。
 
 关键输出字段：
 

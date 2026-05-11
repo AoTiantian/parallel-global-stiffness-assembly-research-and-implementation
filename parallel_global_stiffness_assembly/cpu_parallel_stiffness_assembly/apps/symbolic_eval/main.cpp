@@ -338,6 +338,13 @@ void write_summary_md(const std::string& path,
     std::ofstream out(path);
     if (!out) throw std::runtime_error("Cannot write summary markdown: " + path);
     const auto cpu = get_cpu_topology_info();
+    auto find_record = [&](const std::string& mode, int assemblies) -> const OutputRecord* {
+        for (const auto& record : records) {
+            if (record.mode == mode && record.assemblies_per_symbolic == assemblies) return &record;
+        }
+        return nullptr;
+    };
+
     out << "# 符号/数值组装效率评估报告\n\n"
         << "## 固定术语\n\n"
         << "- 符号组装：拓扑、DOF、CSR 稀疏结构和 scatter 写入位置预计算，不计算 `Ke`。\n"
@@ -359,17 +366,59 @@ void write_summary_md(const std::string& path,
         << "- platform: `" << platform_info_compact() << "`\n"
         << "- CPU: `" << cpu.model << "`, physical_cores=" << cpu.physical_cores
         << ", logical_cores=" << cpu.logical_cores << "\n\n"
-        << "## 结果\n\n"
-        << "| 模式 | 组装次数 | 符号构建次数 | 符号总耗时 ms | 数值 ms | 直接生成 ms | 直接排序归并 ms | 摊销总耗时 ms | 相对无符号收益 | rel_l2 |\n"
-        << "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |\n";
+        << "## 主结论\n\n"
+        << "本报告的主线是比较 `symbolic_reuse_serial` 与 `direct_no_symbolic_serial`：前者代表固定网格、固定 DOF 布局、固定稀疏结构下“一次符号组装，多次数值/物理组装”；后者代表完全不复用符号结构、每次直接生成并归并全局贡献。`symbolic_rebuild_serial` 不是目标使用场景，只作为控制实验单独解释。\n\n";
+
     for (const auto& r : records) {
-        out << "| `" << r.mode << "`"
-            << " | " << r.assemblies_per_symbolic
-            << " | " << r.symbolic_builds
+        if (r.mode != "symbolic_reuse_serial") continue;
+        const auto* direct = find_record("direct_no_symbolic_serial", r.assemblies_per_symbolic);
+        if (!direct) continue;
+        out << "- 组装 " << r.assemblies_per_symbolic << " 次：符号复用摊销总耗时 `"
+            << std::fixed << std::setprecision(3) << r.amortized_total_ms
+            << " ms`，无符号直接组装 `"
+            << direct->amortized_total_ms << " ms`，相对收益 `"
+            << r.symbolic_gain_vs_direct << "x`。\n";
+    }
+
+    out << "\n## 主线评估：符号复用 vs 无符号直接组装\n\n"
+        << "这一节直接对应 mentor 关心的“单次/多次组装效率评估”和“有符号/无符号组装效率评估”。`assemblies=1` 表示单次组装总成本；`assemblies>1` 表示同一稀疏结构下多次物理组装时，符号组装成本被摊销后的总成本。\n\n"
+        << "| 组装次数 | 符号复用：符号总耗时 ms | 符号复用：数值 ms/次 | 符号复用：摊销总耗时 ms | 无符号直接：生成 ms/次 | 无符号直接：排序归并 ms/次 | 无符号直接：摊销总耗时 ms | 符号复用收益 | rel_l2 |\n"
+        << "| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |\n";
+    for (const auto& r : records) {
+        if (r.mode != "symbolic_reuse_serial") continue;
+        const auto* direct = find_record("direct_no_symbolic_serial", r.assemblies_per_symbolic);
+        if (!direct) continue;
+        out << "| " << r.assemblies_per_symbolic
             << " | " << std::fixed << std::setprecision(3) << r.symbolic_total_ms
             << " | " << r.numeric_ms
-            << " | " << r.direct_generate_ms
-            << " | " << r.direct_sort_reduce_ms
+            << " | " << r.amortized_total_ms
+            << " | " << direct->direct_generate_ms
+            << " | " << direct->direct_sort_reduce_ms
+            << " | " << direct->amortized_total_ms
+            << " | " << r.symbolic_gain_vs_direct
+            << " | " << std::scientific << std::setprecision(3) << direct->error.relative_l2
+            << " |\n";
+    }
+
+    out << "\n## 控制实验：每次重建符号结构\n\n"
+        << "### 为什么做这个控制实验\n\n"
+        << "`symbolic_rebuild_serial` 不代表本项目推荐的使用场景，也不是 mentor 问题中的主评估对象。它用于隔离变量：如果同样采用当前 C++ 的两阶段路线，但故意不复用符号结果、每次都重建 CSR pattern 和 scatter plan，那么总成本会是多少。这个对照可以证明主线收益主要来自“符号结果复用”，而不是仅仅来自“代码路径叫做符号组装”。\n\n"
+        << "### 做了什么\n\n"
+        << "对每个 `assemblies_per_symbolic` 取值，`symbolic_rebuild_serial` 都重复执行完整的 `CsrMatrix::build_sparsity()` 和 `build_assembly_plan()`，随后执行一次串行 `physics_tet4` 数值组装。也就是说，组装 10 次时会重建 10 次符号结构；组装 30 次时会重建 30 次符号结构。\n\n"
+        << "### 怎么做的\n\n"
+        << "实现上它复用同一套符号构建函数和同一套串行数值组装函数，只改变生命周期：`symbolic_reuse_serial` 是一次构建、多次组装；`symbolic_rebuild_serial` 是每轮构建一次、组装一次。两者的数值结果都和符号复用参考矩阵比较，`rel_l2` 用于确认控制实验没有改变数学结果。\n\n"
+        << "### 如何解释\n\n"
+        << "如果 `symbolic_rebuild_serial` 明显慢于 `symbolic_reuse_serial`，说明多次组装场景下必须复用符号结构；如果它仍快于无符号直接组装，说明即便不复用，预先构建 CSR/scatter 也比直接贡献排序归并更高效。但项目主结论仍应以 `symbolic_reuse_serial` 为准。\n\n"
+        << "| 组装次数 | 符号构建次数 | 平均 CSR 构建 ms | 平均 scatter plan ms | 平均符号总耗时 ms | 平均数值 ms/次 | 摊销总耗时 ms | 相对无符号收益 | rel_l2 |\n"
+        << "| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |\n";
+    for (const auto& r : records) {
+        if (r.mode != "symbolic_rebuild_serial") continue;
+        out << "| " << r.assemblies_per_symbolic
+            << " | " << r.symbolic_builds
+            << " | " << std::fixed << std::setprecision(3) << r.symbolic_csr_ms
+            << " | " << r.symbolic_plan_ms
+            << " | " << r.symbolic_total_ms
+            << " | " << r.numeric_ms
             << " | " << r.amortized_total_ms
             << " | " << r.symbolic_gain_vs_direct
             << " | " << std::scientific << std::setprecision(3) << r.error.relative_l2
