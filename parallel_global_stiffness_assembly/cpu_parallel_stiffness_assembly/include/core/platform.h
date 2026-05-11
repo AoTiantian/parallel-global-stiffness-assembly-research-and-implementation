@@ -11,8 +11,15 @@ struct PlatformInfo {
     std::string openmp;
 };
 
+struct CpuTopologyInfo {
+    std::string model;
+    int physical_cores = 0;
+    int logical_cores = 0;
+};
+
 PlatformInfo get_platform_info();
 std::string platform_info_compact();
+CpuTopologyInfo get_cpu_topology_info();
 int effective_thread_count(int requested_threads);
 int current_thread_id();
 int max_thread_count();

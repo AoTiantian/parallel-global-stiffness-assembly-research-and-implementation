@@ -173,6 +173,7 @@ python3 scripts/run_cpu_experiments.py
 ## 相关文档
 
 - [CPU 并行算法说明](</Users/macstudio/Documents/Intern_Peking University_supu/parallel-global-stiffness-assembly-research-and-implementation/parallel_global_stiffness_assembly/cpu_parallel_stiffness_assembly/docs/cpu/cpu_algorithms.md>)
+- [符号组装与数值组装说明](</Users/macstudio/Documents/Intern_Peking University_supu/parallel-global-stiffness-assembly-research-and-implementation/parallel_global_stiffness_assembly/cpu_parallel_stiffness_assembly/docs/cpu/symbolic_numeric_assembly.md>)
 - [实现说明](</Users/macstudio/Documents/Intern_Peking University_supu/parallel-global-stiffness-assembly-research-and-implementation/parallel_global_stiffness_assembly/cpu_parallel_stiffness_assembly/docs/cpu/implementation_notes.md>)
 - [Mac Studio 验证记录](</Users/macstudio/Documents/Intern_Peking University_supu/parallel-global-stiffness-assembly-research-and-implementation/parallel_global_stiffness_assembly/cpu_parallel_stiffness_assembly/docs/cpu/macstudio-validation-2026-04-22.md>)
 
@@ -198,4 +199,5 @@ python3 scripts/archive_gpu_legacy.py --project . --dry-run
 - `docs/plans/2026-04-22-chatgpt-pro-handoff.md`
 - `docs/cpu/`
 - `scripts/run_cpu_experiments.py`
+- `scripts/run_symbolic_numeric_eval.py`
 - `scripts/plot_cpu_results.py`
